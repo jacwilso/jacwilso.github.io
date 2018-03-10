@@ -83,7 +83,9 @@
 
           <!-- Environment animation -->
           <h4>Environment Animation</h4>
-          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eos, doloribus, dolorem iusto blanditiis unde eius illum consequuntur neque dicta incidunt ullam ea hic porro optio ratione repellat perspiciatis. Enim, iure!</p>
+          <p>For the animationm, the team wanted the environment to feel alive which meant even the static buildings needed movement. The modules of the buildings rotate independently of the building as a whole, with gears on the module and module above rotating. When the module reached the destintation angle, the doors would open via an animation curve set by the artists. The bridge extends and retracts in a russian doll-like fashion, but only extends as many sections as required to meet with the opposing building.</p>
+
+          <p>The elevator towers, depicted on the left, have elevators ascending and descending throughout the animation. Elevators are spawned from a pool on the faces of the tower, and the script ensures the next elevator either travels the same direction as the last on the same face or waits until the elevator is out of range for a collision. The scripts also allow for the artists to specify the number of stops for an elevator as well as the frequency of stops in a travel from start to finish.</p>
 
           <div class="txt-center">
             <img class="banner-img-2 img-fluid rounded" src="/content/images/game_dev/neon-challenge/env_rotation.gif" alt="">
@@ -92,12 +94,17 @@
 
           <!-- Tooling -->
           <h4>Tooling</h4>
-          <p>The scope of the project required modularization of assets and generation of environment. The artists had planned to build build detailed "modules" which would be part of the stack which consisted a building. Rather than having the artists individually place each module, I developed a simple tool which took many modules with defined heights then</p>
+          <p>The scope of the project required modularization of assets and generation of environment. The artists had planned to build build detailed "modules" which would be part of the stack which consisted a building. Rather than having the artists individually place each module, I developed a tool which took many modules with defined heights into a building of specified height. The module blocks were given random initial angles, so to not face all the same direction, and artists could specify the type of tower. The environment generator spaces the buildings out with the paramters given to help create larger scenes. I worked with the artists on multiple iterations of the tools, and because the project and decisions were advancing so rapidly the tool had a difficult time maintaining keeping pace. The tool was used in a fraction of what it was designed for, but helped me understand how to better develop in future projects.</p>
 
           <div class="txt-center">
             <img class="banner-img-2 img-fluid rounded" src="/content/images/game_dev/neon-challenge/generator_building.png" alt="">
             <img class="banner-img-2 img-fluid rounded" src="/content/images/game_dev/neon-challenge/generator_environment.png" alt="">
-            <img class="banner-img img-fluid rounded" src="/content/images/game_dev/neon-challenge/top_view_connections.png" alt="">
+          </div>
+
+          <p>Part of the tooling developed was to visualize the connections of bridges between modules. The networking of modules is a layered system, with different layers of the environment connecting to one another. The building's modules don't need to rotate in the same direction, point at the same building, or connect to all surrounding modules. Distinguishing which modules have bridge connections and which don't helped the artists continue to develop the scene.</p>
+
+          <div class="txt-center">
+            <img class="banner-img-2 img-fluid rounded" src="/content/images/game_dev/neon-challenge/top_view_connections.png" alt="">
           </div>
 
           <div class="text-center mt-4 mb-4">
