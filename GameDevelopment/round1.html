@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=320, height=device-height, target-densitydpi=medium-dpi"/>
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Jacob Wilson - Game/Software Developer</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="/css/blog-post.css" rel="stylesheet">
+
+  </head>
+
+  <body>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+    </nav>
+
+    <!-- Page Content -->
+    <div class="container">
+
+      <div class="row">
+
+        <!-- Post Content Column -->
+        <div class="col-lg-10 col-center">
+
+          <!-- Title -->
+          <h1 class="mt-4">The SoundBearier</h1>
+
+          <hr>
+
+          <h4>Development</h4>
+          <ul>
+            <li>Role: Programmer</li>
+            <li>Team Size: 5 (Yutian Zheng, Iris Hwang, Srujani Kamineni, Yidi Zhu)</li>
+            <li>Duration: 2-weeks</li>
+            <li>Language: C# (Unity)</li> 
+            <li>Platform: Microsoft HoloLens (AR)</li>
+          </ul>
+          <h5>Contributions</h5>
+          <ul>
+            <li>Programmed guest hand interactions with HoloLens - picking up, selecting</li>
+            <li>Programmed tool for quickly displaying occluded objects</li> 
+            <li>Programmed characters interaction with trees (avoidance and climbing)</li> 
+          </ul>
+          <hr>
+
+          <!-- Preview Image -->
+          <div class="txt-center">
+            <iframe class="banner-img" src="https://www.youtube.com/embed/w04QbQjhO_0" frameborder="0" allowfullscreen></iframe>
+          </div>
+
+          <hr>
+
+          <!-- Post Content -->
+          <p class="lead">I was co-programmer on the rapid prototype and developed the occlusion maps (including the editor script for outlining) and the tripping, tree climbing, and board breaking interactions. In the constrained 2-weeks, a focus was placed on high interactivity from the player and a developing character dynamic which the player would help resolve.</p>
+
+          <p>The game starts with a hiker stumbling into a bear in the woods. The bear emerges from a cave and begins a chase as the hiker tries his best to reach his cabin and escape being mauled by the bear. The occluded objects in the game world map to real-world props created with a similar art style. The clumsy hiker stumbles over logs, climbs trees, and attempts to frighten the bear and with the player's help will make it home safely. The game has a heavy focus on feedback to the player with the icons above the hiker's head guiding the player's instructions and actions, the audio cues to provide context and influence their actions, and the feedback provided after the player performs an action deemed correct by the game. As the player helps the hiker through the 1st stage and into the 2nd stage, he/she has the choice of selecting a tree for the hiker to climb to escape the imediate grasp of the bear.</p>
+
+          <hr>
+
+          <div class="txt-center">
+            <img class="banner-img-4 img-fluid rounded" src="/content/images/game_dev/bvw/round1_gameplay_1.png" alt="">
+            <img class="banner-img-4 img-fluid rounded" src="/content/images/game_dev/bvw/round1_gameplay_2.png" alt="">
+            <img class="banner-img-4 img-fluid rounded" src="/content/images/game_dev/bvw/round1_gameplay_4.png" alt="">
+            <img class="banner-img-4 img-fluid rounded" src="/content/images/game_dev/bvw/round1_sceneshot.png" alt="">
+          </div>
+
+          <hr>
+
+          <p>The trees proved to be a more difficult task than initially projected, because the hiker wasn't climbing virtual trees but rather trees in the real-world. If the hiker climbed too far away from the tree then it seemed as if he was floating in the air which disconnected the player from their experience, however if the climb was through the tree it would cause the same disconnect. A easy solution would be to have cylindrical trees which the hiker climbs and navigates around rather than climbing with a slope, however I wasn't convinced the conical shape trees couldn't be done. Initially, the hiker collided with the same mesh that was occluding the real-worl prop however, we found that if this was the case the occlusion area wasn't large enough or the tree was unrealistically large. By separating the collision mesh and occlusion mesh into 2 separate entities it allowed the occlusion area to be larger, thus if the real-world objects were perfectly aligned with the virtual world the hiker would still seem as though he is climbing the tree without breaking the immersion. This also allowed us to colorize the mesh cones after the tree was selected to provide feedback to the player.</p>
+
+          <p>Another struggle with the hardware of the HoloLens was the spatial mapping and anchoring of the system. The project needed to be spatially anchored to a table, because an occlusion map was being used to map real-world objects. My solution was use Vuforia's image processing to center and level the world at the specific height of the table, which then allowed us to perform an easier calibration on the table corners.</p>
+
+        </div>
+
+      </div>
+      <!-- /.row -->
+
+    </div>
+    <!-- /.container -->
+
+    <!-- Footer -->
+    <footer class="py-3 bg-dark">
+          <p class="m-0 text-center text-white mb-3">Updated on October 11, 2017</p>
+          <div id="footer"></div>
+    </footer>
+
+    <!-- Bootstrap core JavaScript -->
+    <script src="/vendor/jquery/jquery.min.js"></script>
+    <script src="/vendor/popper/popper.min.js"></script>
+    <script src="/vendor/bootstrap/js/bootstrap.min.js"></script>
+    <script>
+      $(function() {
+        $("#footer").load("/content/footer.html");
+        $("nav").load("/content/navigation.html");
+      });
+    </script>
+
+  </body>
+
+</html>

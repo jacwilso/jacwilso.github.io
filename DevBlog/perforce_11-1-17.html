@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=320, height=device-height, target-densitydpi=medium-dpi"/>
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Jacob Wilson - Game/Software Developer</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="/css/blog-post.css" rel="stylesheet">
+
+  </head>
+
+  <body>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+    </nav>
+
+    <!-- Page Content -->
+    <div class="container">
+
+      <div class="row">
+
+        <!-- Post Content Column -->
+        <div class="col-lg-10 col-center">
+
+          <!-- Title -->
+          <h1 class="mt-4">How to use P4V Perforce</h1>
+          <h3>Directed at CMU's ETC BVW</h3>
+          <hr>
+
+          <!-- Date/Time -->
+          <p>Tools: Perforce, P4V</p>
+
+          <hr>
+
+          <!-- Preview Image -->
+          <div class="txt-center">
+
+          </div>
+
+          <!-- Post Content -->
+          <p class="lead">This <b>IS</b> a high-level overview of how to use Perforce in P4V for a more efficient team workflow and to avoid common problems/mistakes. This <b>IS NOT</b> an in-depth look at Perforce and all its features, nor will I cover Perforce in the terminal (however the concepts can be reused). After reading this I hope to demystify Perforce/P4V and help you realize that it isn't a scary monster but a valuable helper. If you aren't enrolled in Carnegie Mellon University's Building Virtual Worlds course this information may not be as useful as a typical tutorial.</p>
+
+          <h3>Basics</h3>
+
+          <p>I am going to demonstrate on P4V, P4V <b>is not</b> Perforce, it is an interface (GUI) to interact with Perforce. Perforce is a type of version control system, similar to Git, P4V is like Github Desktop, and the server is like Github. Version control is the ability to save/revert files in a history log, think of it as a clean way of appending "_1", "_2", etc. to your files. If you care about a project, you should use some platform for version control. There are other Perforce interfaces, however because P4V was introduced to us at the beginning of the semester I assume everyone reading this post has some familiarity with it. <!--If you are interested in other software, you can still skim this blog post for understanding but look elsewhere for how to use the software.--></p>
+
+          <h4>Logging Into P4V</h4>
+
+          <p>When you open P4V you will be greeted by the "Open Connection" dialogue (image below). I have highlighted 4 boxes, Remote Server/Personal Server, Server, User, and Workspace.</p>
+
+          <hr>
+
+          <div class="txt-center">
+            <img class="img-fluid rounded mb-3 mt-2" src="/content/images/blog/perforce/open_connection.PNG" alt="">
+          </div>
+
+          <hr>
+
+          <h5>Server Tabs</h5>
+          <p>A <b>remote server</b> is a server like Randon, a server that isn't local to your machine which must be accessed through internet connection. A <b>personal server</b> is a local folder structure on your machine. A reason to have a personal server would be to have version control on a personal project, when the ETC perforce server isn't available for use.</p>
+
+          <h5>Server</h5>
+          <p>The <b>server</b> on the connection dialogue is where your files are actually located, stepping through the server shown: "ssl" - secure sockets layer (keeps the connection safe), "perforce.etc.cmu.edu" - server address (think like a website), and "1666" - the port address.</p>
+
+          <h5>User</h5>
+          <p>The <b>user</b> is simply your identification. Having users allows Perforce to keep track of who has a file, who made changes to which files, and restrict access to certain files.</p>
+
+          <h5>Workspace</h5>
+          <p>Finally, the <b>workspace</b> is the local file structure where your files are located. An important note is that you can have multiple workspaces, one for each project, one for a daily local backup and 1 for development. Do not be afraid to have multiple, however I recommend having as few as necessary so you don't get lost in which workspace you are working in or which workspace has a file locked.</p>
+
+          <h4>P4V's Interface</h4>
+
+          <p>Once logged in, P4V will resemble something seen below which I have marked with boxes A-E.</p>
+
+          <p>Perforce files are handled as below:
+            <ul>
+              <li>Project files from Perforce are copied from the depot into your local workspace, creating local copies.
+                <ul>
+                  <li>Never get files when you are not logged into your account. You want to be able to track where files have been locked and you want the changes to be marked under your username.</li>
+                </ul>
+              </li>
+              <li>Files are created or checked-out and modified.</li>
+              <li>The file changes then must be submitted back to the depot.</li>
+            </ul>
+          </p>
+
+          <p>Checking out files/folders in P4V is essential for the following reasons:
+            <ul>
+              <li>If files are not checked out and modified in the file explorer, instead of using P4V commands, then P4V won't know what/how the files were changed and won't indicate they were.
+                <ul>
+                  <li>For example if you delete files from your file explorer, <b>it will not</b> delete files from depot.</li>
+                </ul>
+              </li>
+              <li>Checking out files/folders will stop anyone else on your team from modifying these files.
+                <ul>
+                  <li>If using P4V in Unity, the checkout on scripts acts like a tag rather than creating a hard lock. For more information about how to use the Unity P4V plugin (see programmer section).</li>
+                </ul>
+              </li>
+            </ul>
+          </p>
+
+          <p>Submitting new files/folders and re-submitting modified files/folders (that were previously checked out) happens in the following manner:
+          <ul>
+            <li>To submit files already located on the depot, select the files/folders in P4V and hit ‘submit’.</li>
+            <li>To submit new files, select those files/folders in P4V and click <i>Mark for add</i>. The file will then be tracked by P4V and added to the depot.</li>
+            <li>Submit your files with <b>meaningful comments.</b>
+              <ul>
+                <li>A space, single character, or gibberish will not help your other teammates see your contribution to the project, nor will it help you identify what changes you submitted.</li>
+              </ul>
+          </ul>
+          </p>
+
+          <p>A detailed process depending on your role in BVW is described in the sections below.</p>
+
+          <!--<p>The flow of Perforce is files from the depot get copied into your workspace, which are now local copies, your copies. If you don't checkout files and modify them in the file explorer, <b>not P4V</b>, P4V won't know what/how files were changed. For example if you delete files from your file explorer, <b>it will not</b> delete files from depot. You will then checkout a file/folder, which will stop anyone else on your team from modifying these files (if using P4V in Unity, it is more like a tag that you are modifying rather than a hard lock). To submit files, if you have checked out the files you've modified, simply select the files/folders and hit submit. If the files are new, select those files and click "Add" which adds them to be tracked, you then need to submit the files for them to go into the depot. Please submit your files/changes with meaningful comments; a space, single character, or gibberish will not help your other teammates see your contribution to the project nor will it help you later identify what changes you submitted. A more detailed process dependent on your role is described in sections below.</p>-->
+
+          <hr>
+
+          <div class="txt-center">
+            <img class="img-fluid rounded mb-3 mt-2" src="/content/images/blog/perforce/workspace.PNG" alt="">
+          </div>
+
+          <hr>
+
+          <h5>Box A - Depot/Workspace</h5>
+          <p>Box A has the depot and workspace tabs as well as the name of your workspace. My workspace name is "jacobwil_ETC-JACOBWIL_2243". The depot tab is what is on the server, the depot is synonymous with the server. The workspace is the files/folders local to your computer.</p>
+
+          <h5>Box B - Connection</h5>
+          <p>In box B, I have expanded the connection drop-down menu because I use it the most. On your local machine you won't need to log off of P4V. However, when you log into a public machine remember to log off for 2 important reasons:
+            <ol>
+              <li>) It will remind you to check for any locked/checked-out files which will prevent headaches generated from going between computers when files are locked/checked-out.</li>
+              <li>) It will stop other people from using your user/workspace, which could cause them to have locked files on your system.</li>
+            </ol>
+          </p>
+
+          <p>Below box B are the workspace select, edit and creation tools. These funcations can also be carried out by clicking the workspace name in box A. You will use <i>Switch to Workspace...</i> in 2 cases:
+            <ol>
+              <li>) You currently don't have a workspace selected but have a workspace on the computer
+              </li>) You have another workspace on that machine that isn't the workspace you want to be working on
+            </ol>
+          </p>
+
+          <p>I use <i>Edit Current Workspace...</i> to quickly copy the name of my workspace (useful if you are using the Unity P4V plugin), and change the workspace root (the main file location on your local machine).</p>
+          
+          <p><i>New Workspace</i> prompts a popup similar to edit, however you are creating a new workspace somewhere locally. Unlike edit workspace, you can change the name of your workspace. I highly recommend taking advantage of this to keep track of workspaces if you are working on different machines during a project. For example, you should name the workspace in the Vive room, "username_ETC-LeftVive". Although my workspace name is generic, I recommend this so if you have a locked file you and your teammates can quickly track the computer the locked file is located on. The more specific the name, the easier it will be for you to track down and submit/revert those changes. Be warned, once you create a workspace the name cannot be changed only in P4V -- it requires using P4 in the command line.</p>
+
+          <h5>Box C - Depot/Workspace Files</h5>
+          <p>In box C, depending on whether the depot or workspace tab is selected, the files located in that space will be displayed. You will need to click <i>refresh</i> only if files have been added outside of P4V, like creating a file through the file explorer window. You do not need to refresh after getting files from the depot.</p>
+          
+          <p>On the depot tab will be all the folders/files located on the server, the majority of which are irrelevant to you because it holds files for the entire server. When retrieving files from the depot, be as specific as you can get so you don't have files not part of your project cluttering your workspace (this is more important with limited computer storage).</p>
+          
+          <p>On the workspace will be all the files you have locally on your computer. These files are yours to do as you want, you can delete, move, copy, rename files without affecting files on the depot, so long as you don't checkout the files or <i>reconcile offline work</i> and submit the changes.</p>
+          
+          <p>If you accidentally copy the entire depot, cancel it as quick as possible. Go to the folder you want files from and do a force <i>get revision</i> of that folder (described in Perforce Commands - Get Revision). You will, however, still have the files from the start of the copy, these are unwanted and cluter in your workspace. <b>Do not</b> <i>mark for delete</i> the files in P4V, this will remove them from the depot, in essence deleting the current version on the server. A quick solution to remove these files is:
+            <ol>
+              <li>) Right click on the parent folder containing all the unwanted files</li>
+              <li>) Select "Show In Explorer" and delete them in the file explorer (make sure none of these files are checked out by your workstation)</li>
+              <li>) Refresh your workspace in P4V.</li>
+            </ol>
+          </p>
+
+          <h5>Box C - p4ignore</h5>
+          <p>The ".p4ignore.txt" file will be the file that saves you the most time and boosts your efficiency with P4V. It is indictated with the arrow in box C and located under my root folder. With the p4ignore, you define which file types, specific files, and folders you don't want included in the depot from your computer. This will speed your submission process as you can <i>mark for add</i> and <i>submit</i> an entire folder without adding files that shouldn't be on the depot, like the Unity library folder. The fewer files on the depot will keep it <b>organized</b>.</p>
+
+          <p>There currently isn't a way to set your p4ignore file in P4V, continue to <a href="http://answers.perforce.com/articles/KB/1282">here</a> if you are interested in learning how to set one up, I <b>highly</b> recommend. The p4ignore file is independent for each team member so you can customize it for your use. You can also have p4ignores for specific projects, however it is good practice to have a general one at the root of your Perforce directory. I have attached my slightly customized p4ignore below for programmers and a generic one liner for artists.</p>
+          <ul>
+            <li>Programmers can use this to stop the Library and Debug folders from being added to the depot, which means getting latest revision will be quicker than if they were on the depot.</li>
+            <li>Artists and sound designers can use a p4ignore to ignore all files with a specific word in the name, ie local_* will ignore all files with "local_" in the name so you can keep all your files in the workspace directory without submitting every file.</li>
+            <ul>
+              <li>The dot in front of the file name hides the file in the file explorer.</li>
+            </ul>
+          </ul>
+
+          <h5>Box D - Pending/History Tabs</h5>
+          <p>In box D, contains the tab that tracks your current pending files and the history of the selected file/folder. You can submit, revert, etc. directly from the pending tab. Prior to logging off or leaving for the night check your pending tab to see if you have any files which haven't been submitted to the depot.
+            <ul>
+              <li>Click on the change arrow/description ("default" is the name in this image) to expand the files which are pending.</li>
+              <li>Any files located in the pending tab have changes local to your machine, or in the case of a new file, only exist on your machine, and maybe locked to your workspace.</li>
+            </ul>
+          The pending tab stores changelists, which are a list of files which you have selected to submit to the depot. For example when you go to submit changes on your current project, you select the files you want to submit with the checkboxes and you can save that selection as a changelist. Your pending tab may have more changelists than mine; these occur if you create a new changelist or if P4V detects an error when submitting. P4V will save that submit as a changelist for you to submit at a later time, so that the problems displayed in the log can be resolved. Separate changelists are a good idea if you are working on multiple features and/or juggling different projects, however once you are finished with a project remove that changelist. If you aren't sure about creating changelists that is ok, however I highly recommend you try to keep your changelist short so you can quickly locate your pending files.</p>
+          
+          <p>The history tab is the foundation of Perforce, version control. It allows you to recover/revert files and folders to older revisions as well as look at the file differences/adds. 
+            <ul>
+              <li>An artists can recover an older model from the server, if they decide their most recent save isn't working.</li>
+              <li>A programmer can recover an entire project if your local version becomes corrupted.</li>
+            </ul>
+          The history tab is a list of all the submissions of the file(s) along with their respective submit descriptions. This is where you descriptions are invaluable. With detailed descriptions, you can quickly select which submit you want to find rather than opening each changelist through the history.</p>
+
+          <h5>Box E - Log/Commands</h5>
+          <p>In box E, is the log of commands performed from the GUI of P4V. If you are interested in eventually using P4/Perforce in the command line, it is good to watch how P4V works. When you have errors, denoted in the log with bold and yellow caution triangles, it allows you see which files are causing you problems to help track them down. Typically, if there is a missing file, one that you deleted, causing a warning/shelving your submit you will most likely need to revert the file on the depot. Finally, there is an input text box at the bottom of the log for Perforce commandline commands, so if you run into a problem that the P4V GUI can't fix but that a P4/Perforce fix you can most likely input the command here.</p>
+
+          <h4>Perforce Commands</h4>
+
+          <p>There is a set of commands which you will use very frequently: <i>get latest revision</i>, <i>get revision</i>, <i>mark for add</i>, <i>mark for delete</i>, <i>submit</i>, <i>revert unchanged</i>, and <i>revert</i>. You should understand, generally, what the command does and when to use each of the commands. There are many other commands you can use, but they aren't vital to work in on a rapid prototype project.</p>
+          
+          <h5>Get Latest Revision</h5>          
+          <p><i>Get latest revision</i> will create a local copy in your workspace of any files that have an updated version from in the depot compared to your workspace copy. If your workspace already contains the latest version, or P4V thinks you have the latest version, the name of the file will be followed by #x/x where x is the version number. If the numerator (1st x) is smaller than the denominator (2nd x) then your local version is old. Performing a <i>get latest revision</i> won't add files if P4V thinks you have the latest version. This can happen if you delete the latest version of a file from your workspace in the file explorer, <b>not</b> the same as <i>mark for delete</i> (explained below). If you need the file back, you will have to use <i>get revision</i>.</p>
+          
+          <h5>Get Revision</h5>
+          <p><i>Get revision</i> can force a file from the depot onto your workspace, regardless of your vesion ("Force Operation") and protect modified files you haven't checkout ("Safe Update"). I recommend against modifying files without checking them out first, because it can lead to issues. Be careful with <i>get revision</i> you can lose work and it may not be recoverable, but it may be necessary if <i>get latest revision</i> isn't copying the file to your depot.</p>
+
+          <h5>Mark For Add</h5>          
+          <p><i>Mark for add</i> tracks a file to be added onto the depot, it <b>does not</b> copy it to the depot. Once a file has been added to the depot you won't need to mark it again since Perforce will track that file's identity through checkouts. You can mark an entire folder system for add, which works really well when you have a p4ignore, because the files you don't want on the depot will be ignored even if the whole folder is selected.</p>
+
+          <h5>Mark For Delete</h5>
+          <p><i>Mark for delete</i> will set a flag on a file so that when you submit your changes to the depot the file will be removed. Because of version control no file is truly deleted, since you will be able to revert the history to the version with that file in place. If you delete a file in Unity then create a file with the same name, the new file will be marked for delete since Unity P4V can't distinguish the 2. To fix this, mark the file for add then your new file will be kept and overwrite the one on the server so it will contain the history of the last file.</p>
+          
+          <h5>Submit</h5>
+          <p><i>Submit</i> is how files transfer from your workspace to the depot, without doing this your files will remain only in your local workspace. You will be prompted for a meaningful description. The more in detail you can be the better for team efficiency. It takes only a few extra seconds to be descriptive which could save you many minutes trying to find when specific changes were made later. Try to submit files as you complete features (smaller submits throughout the day are better than one large one at the end of the day) and try not to submit broken code (unless your other programmer is immediately going to fix it).</p>
+          
+          <h5>Revert Unchanged</h5>
+          <p><i>Revert unchanged</i> returns unchanged files that have been checked-out back to the depot. If you checkout a file that you don't use/modify, <i>revert unchanged</i> so the files are no longer locked. You can select all the project's folders and perform a <i>revert unchanged</i> without worrying about losing work, since the file will only be returned if there is no difference with the one on the depot, this also applies to unchecked-out files. This allows your other team members to checkout/modify the file without worrying about conflict. A general practice is that you should have as minimal amount of files checked-out at any given time.</p>
+
+          <h5>Revert</h5>         
+          <p><i>Revert</i> isn't as safe as <i>revert unchanged</i>, it removes any changes to the files that you may have created. This is useful when you are trying to make large changes which don't work out, because instead of manually undoing the changes you made, you can get the unmodified copy on the depot. This can save time and is safer since it will remove all remnants of code from the buggy feature/uncompleted model. This is also why having frequent submits is important, because work attached to other features won't be lost. Branches and separate workspaces can allow you to work on multiple features by swapping between, however those are more advanced Perforce features that I won't cover in this post.</p>
+
+          <hr>
+
+          <div class="txt-center">
+            <img class="img-fluid rounded mb-3 mt-2" src="/content/images/blog/perforce/get_revision.PNG" alt="">
+          </div>
+
+          <hr>
+
+          <h3>Artists/Sound Designers</h3>
+
+          <p>With the basics, you should have a good understanding of how to use P4V and Perforce if you didn't already. Each project team I have been apart of has done something different with folder structure and how files transfer between teammates, which leads to confusion regardless of how good the communication is.</p>
+
+          <p>The biggest request I have as a programmer is consistency of file naming and location. If you work at a AAA studio, this will most likely be handled for you because of the amount of assets, however if you remain indie/startup keeping a consistent naming convention for your files will make you a much easier team member to work with. The same goes for your time at the ETC. Keep things <b>organized</b> and <b>consistent</b> and your team members will love you, or at least I will.</p>
+
+          <p>At its core Perforce is version control. It tracks the history of a file, see when it was added, modified, deleted.
+          <ul>
+            <li>If each time you update a file on your local machine, you save it to the workspace with a new name you stop Perforce from being able to track that file's history.</li>
+            <li>This also can introduce confusion with your other team members as they may not know which version you are talking about and could use an older version of the file.</li>
+            <li>You also might lose track of versioning numbers or change how you do things part way through. <b>Do not</b> append "_1", "_2", etc. to your file names that get added to the depot.
+              <ul>
+                <li>This breaks the rule of consistency, the file is no longer just 1 name but now multiple.</li>
+              </ul>
+            </li>
+          </ul>
+          If you would like to save a version of the file with a different name somewhere on your computer just for your own happiness, go for it! I recomend you could create a p4ignore to ignore a folder of files which are only for you, this will stop you from accidentally adding them to the depot.</p>
+
+          <p>I have created a p4ignore below for files located in a folder named Local_Files, so any files in a folder named Local_Files won't be added to the depot -- see above for how to setup p4ignore. But for the file submitted to the depot, checkout the file with the same name, save the newest version overtop of the old version, then submit the change to the depot with a descriptive comment (ie "added rig for X, no animations").</p>
+
+          <h5>Artists & Unity</h5>
+          <p>Extra note that isn't specifically about Perforce but for artists, when you export a model from Maya try to import it into Unity.</p>
+          
+          <p>If the model is miniature (too small to see without zooming in immensely), the model was most likely exported with units of cm.
+            <ul>
+              <li>It is easier/quicker, if you as the artist re-export the model with dimensions that you want to see in the game; it doesn't need to be exact but close.</li>
+              <li>This also gives you the opportunity to see the model in Unity to know if you want to make any changes.</li>
+              <li>You can also create a model to act as a reference figure, so all the models are scaled relative to one another.</li>
+            </ul>
+          </p>
+
+          <p>Another nice thing to ask the programmer is if there is a preference on pivot location, sometimes this isn't important however other times it can help your programmer from doing unnecessary programming.</p>
+
+          <p>Finally, if you import the model into Unity and set the textures (albedo and normal maps) and you feel confident, you can export the model as a Unity package and upload that along with the FBX onto the depot. I suggest creating a separate folder within your art folder for the FBX models and Unity packages. Some programmers may use the packages, others may use the FBX's (especially if it's an updated version of a model or has animations), but that is up to you and your programmer to decide.</p>
+
+          <h3>Programmers</h3>
+
+          <p>I expect most people know there way around Perforce by now, however I still hear of people running into issues or saying it scares them.</p>
+
+          <p>We use Perforce for a reason, because it helps collaboration between teammates and you can access your files anywhere (even at home through the VPN). <b>Do not</b> use a flash drive of your files and transfer that around, it wastes time because you upload every file each time, stop work between teammates, and it doesn't allow for version control -- you are bound to run into problems and if you think you need a flash drive you are doing something wrong.</p>
+
+          <p>If you aren't already, I would highly recommend using the Unity P4V plugin, because it allows to "tag" files rather than locking them so your other programmers can modify the same scripts. 
+            <ul>
+              <li>I say "tag" because the file isn't locked but marked so the other programmer knows you are modifying it.</li>
+              <li>For programming you don't necessarily need to checkout files, however I <b>highly</b> recommend it still.</li>
+            </ul>
+          </p>
+
+          <p>Before you edit a file, <b>checkout</b> the file from Unity/Perforce. The files are marked as "readonly" until you check them out, which then they will become writable -- editing a readonly file should feel dirty.</p>
+            
+          <p>If you edit a file without checking it out first, you will know when you try to save because you will be prompted with a dialogue prompt (seen below). P4V will not know you have edited the file, because it doesn't think you have access to editing it, so there will be no visual prompt in P4V that the file has changes.</p>
+          
+          <hr>
+
+          <div class="txt-center">
+            <img class="img-fluid rounded mb-3 mt-2" src="/content/images/blog/perforce/overwrite_dialogue.PNG" alt="">
+          </div>
+
+          <hr>
+
+          <p>There are 2 routes you can take when prompted with the readonly dialogue, the Perforce way or the hacky way of modifying a readonly file. 
+            <ol>
+              <li>For the Perforce way, hit cancel and return to Unity/Perforce and checkout that file, then you can save and continue working.</li>
+              <li>If your other programmers have locked the file or you have already clicked overwrite, you have taken the hacky way.
+                <ol>
+                  <li>Once you have completed your changes return to P4V and select the folder which contains the modified file, select the closest parent folder to the file not the main parent.</li>
+                  <li>Right click and click <i>Reconcile Offline Work</i>, specifically selecting the checkbox for the file(s) which you have modified. <b>Do not</b> select everything.
+                    <ul>
+                      <li>What a reconcile does is compares the files on the depot with the files you have in your workspace (ignoring p4ignore files), so any files different from yours will be overwritten with your copy when you submit.</li>
+                      <li>At minimum you should do a get latest, but reconciling is dangerous because if another teammate has deleted/changed files and submitted those to the depot and you don't have your teammate's version, P4V will assume you have made changes to those files (which you haven't you just have an old version) which will then overwrite the depot copy with yours, <b>be explicit</b>.</li>
+                    </ul>
+                  </li>
+                </ol>
+              </li>
+            </ol>
+          </p>
+
+          <h5>Reconciling Stories</h5> 
+          <p>Here are some of the things that can happen when you reconcile. I urge you not to make the same mistakes, and take the easy road, the one Perforce wants you to.</p>
+
+          <p>In one project, one programmer was deleting files/folders from the depot but the files kept coming back.
+            <ul>
+              <li>What was happening was they were using <i>mark for delete</i> and <i>submit</i> which would remove the files from the depot (all good), but the other programmer was using <i>reconcile offline work</i> every time they submitted and they weren't being specific.</li>
+              <li>The reconcile would do a diff against the depot and their workspace and see that the depot didn't have the deleted files, so would mark their files for add to the depot. That programmer wasn't specifically selecting files and was just adding everything, which created a loop of one deleting from the depot and the other re-adding.</li>
+              <li><b>Be specific</b> on what you mark for add and submit to the depot.</li>
+            </ul>
+          </p>
+          
+          <p>In another case, one programmer took the hacky path, lost work, and tried to blame Perforce. The programmer didn't checkout a file and when saving selected overwrite, they edited a readonly file.
+            <ul>
+              <li>When they submitted, they did not perform a reconcile which meant all the changes they made weren't acknowledged by P4V, but they thought they were.</li>
+              <li>When they asked their other programmer to view their changes, they didn't see any of their new code.</li>
+              <li>They also had their artist make changes who then did submit successfully, throwing their versioning out of sync, along with other shenanigans corrupting their Unity project. They acknowledged they were using a version control system and reverted their project to last uncorrupted version. But, oh no, they still hadn't submitted their code to the depot which meant the revert purged the workspace of any changes not in the depot, in essence losing everything.</li>
+              <li>They then tried to blame Perforce:
+                <ul>
+                  <li>if you ever try to blame Perforce you should sit and think what did you do wrong and how can you not make the same mistake.</li>
+                  <li><b>Do not</b> edit readonly files, check them out.</li>
+                </ul>
+              </li>
+            </ul>
+          </p>
+
+          <h3>Summary</h3>
+          <p>I hope you can now confidently use Perforce and P4V and understand what you are doing better. The stories and warnings aren't there to scare you, but so you can learn from the mistakes of others. If you have questions or comments about the post please feel free to reach out to me through email, listed below. I may add/remove content as people suggest in order to make this as valuable as possible for future ETC BVW students.</p>
+
+          <p>The conventions I hope for you to follow are:
+            <ul>
+              <li><b>Checkout</b> any file/folder you want to modify, <b>do not</b> try to hack through the system.</li>
+              <li>Use Perforce/P4V's as version control, and write <b>descriptive</b> submits.</li>
+              <li>Stay <b>organized</b> with file names and folder structure.</li>
+              <li><b>Understand</b> what you are doing, before you do it.</li>
+            </ul>
+            These are only a brief overview if you decide not to read the whole post, but if you find yourself not understanding a command or what went wrong it will be best if you read the entire post.
+          </p>
+
+        </div>
+
+      </div>
+      <!-- /.row -->
+
+      <div class="text-center mb-4">
+          <div class="d-inline">
+            <a class="btn btn-default btn-lg" target="_blank" href="/content/images/blog/perforce/programmer_p4ignore.txt">
+              <i class="fa fa-download fa-lg fa-inverse" aria-hidden="true"></i>&nbsp;
+              <span class="fa-inverse">Programmer P4Ignore File</span>
+            </a>
+          </div>
+      </div>
+
+      <div class="text-center mb-4">
+          <div class="d-inline">
+            <a class="btn btn-default btn-lg" target="_blank" href="/content/images/blog/perforce/art_sound_p4ignore.txt">
+              <i class="fa fa-download fa-lg fa-inverse" aria-hidden="true"></i>&nbsp;
+              <span class="fa-inverse">Artist/Sound Designer P4Ignore File</span>
+            </a>
+          </div>
+      </div>
+
+    </div>
+    <!-- /.container -->
+
+    <!-- Footer -->
+    <footer class="py-3 bg-dark">
+          <p class="m-0 text-center text-white mb-3">Updated on November 6, 2017</p>
+          <div id="footer"></div>
+    </footer>
+
+    <!-- Bootstrap core JavaScript -->
+    <script src="/vendor/jquery/jquery.min.js"></script>
+    <script src="/vendor/popper/popper.min.js"></script>
+    <script src="/vendor/bootstrap/js/bootstrap.min.js"></script>
+    <script>
+      $(function() {
+        $("#footer").load("/content/footer.html");
+        $("nav").load("/content/navigation.html");
+      });
+    </script>
+
+  </body>
+
+</html>

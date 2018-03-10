@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=320, height=device-height, target-densitydpi=medium-dpi"/>
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Jacob Wilson - Game/Software Developer</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="/css/blog-post.css" rel="stylesheet">
+
+  </head>
+
+  <body>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+    </nav>
+
+    <!-- Page Content -->
+    <div class="container">
+
+      <div class="row">
+
+        <!-- Post Content Column -->
+        <div class="col-lg-10 col-center">
+
+          <!-- Title -->
+          <h1 class="mt-4">Dreamhack Jam 2017 - Suck On That</h1>
+
+          <hr>
+
+          <h4>Development</h4>
+          <ul>
+            <li>Role: Lead Programmer and Team Lead</li>
+            <li>Team Size: 5 (Ketul Majumudar, Wonjae Kim, Sunil Sandeep Nayak, and Patrick Lyu)</li>
+            <li>Duration: 48 hours</li>
+            <li>Language: C# (Unity)</li> 
+            <li>Platform: Windows (PC)</li>
+          </ul>
+          <h5>Contributions</h5>
+          <ul>
+            <li>Programmed main mechanic (gravity and sucking) and interaction (enemy pathfinding)</li>
+            <li>Established based code architecture and asset pipeline for quick prototyping</li> 
+          </ul>
+          
+          <hr>
+
+          <!-- Preview Image -->
+          <div class="text-center">
+            <img class="banner-img-2 img-fluid rounded" src="/content/images/game_dev/dreamhack_17/title_screen.png" alt="">
+          </div>
+
+          <hr>
+
+          <!-- Post Content -->
+          <p class="lead">I assembled a team of 4 other students and was the head programmer in the Dreamhack game jam. The jam had a 48 hour time constraint based on the theme of apocalypse, and our entry placed in the top 10 of 183 entries.</p>
+
+          <div class="text-center mb-4">
+            <div class="d-inline">
+              <a class="btn btn-default btn-lg" target="_blank" href="https://gamejolt.com/games/suckonthat/287607">
+                <i class="fa fa-download fa-lg fa-inverse" aria-hidden="true"></i>&nbsp;
+                <span class="fa-inverse">Download on Game Jolt</span>
+              </a>
+            </div>
+          </div>
+
+          <p>The player controls the UFO which sucks resources from the Earth by enabling their tractor beam. While collecting resources like trees, clouds and even the water, the player must avoid the jets which target the UFO. The player is either able to deplete the Earth of its' resources or gets blown up by the jets.</p>
+
+          <hr>
+
+          <div class="text-center">
+            <img class="banner-img-2 img-fluid rounded" src="/content/images/game_dev/dreamhack_17/gameplay_1.png" alt="">
+            <img class="banner-img-2 img-fluid rounded" src="/content/images/game_dev/dreamhack_17/gameplay_2.png" alt="">
+          </div>
+
+          <hr>
+          
+          <p>Since the game was based around a sphere with the gravitational pull noticably changing with player movement, it presented a few unique problems. I programmed the jets targetting system to the UFO which was difficult to determine the path towards the UFO since I needed a vector which followed along the sphere not through the sphere. The solution I came up with was to get the vector from the plane to the UFO then project that onto the plane who's normal is the vector from the center of the planet to plane. The other problem I faced was procedurally placing the resources on the planet, specifically on the continents (green areas not under water). Physically placing and orienting the resources would have taken too long and wouldn't have made the game alterable for the designers and could still have visual issues. For each resource type, I programmed a configurable number of raycasts from the center of the planet each with a random direction. The raycast detected whether it collided with the planet mesh or water mesh; if the ray hit water mesh before the planet mesh it meant the position was under the Earth's surface and a valid placement. Once all resources were placed, the mesh collider of the planet was disabled for performance sake.</p>
+
+        </div>
+
+      </div>
+      <!-- /.row -->
+
+    </div>
+    <!-- /.container -->
+
+    <!-- Footer -->
+    <footer class="py-3 bg-dark">
+          <p class="m-0 text-center text-white mb-3">Updated on October 11, 2017</p>
+          <div id="footer"></div>
+    </footer>
+
+    <!-- Bootstrap core JavaScript -->
+    <script src="/vendor/jquery/jquery.min.js"></script>
+    <script src="/vendor/popper/popper.min.js"></script>
+    <script src="/vendor/bootstrap/js/bootstrap.min.js"></script>
+    <script>
+      $(function() {
+        $("#footer").load("/content/footer.html");
+        $("nav").load("/content/navigation.html");
+      });
+    </script>
+
+  </body>
+
+</html>

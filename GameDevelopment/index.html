@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=320, height=device-height, target-densitydpi=medium-dpi"/>
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Jacob Wilson - Game/Software Developer</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="/css/business-sidepage.css" rel="stylesheet">
+
+  </head>
+
+  <body>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+    </nav>
+
+    <!-- Header with Background Image -->
+    <header class="business-header">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12">
+            <h1 class="display-4 text-center text-white mt-4">Game Development</h1>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Page Content -->
+    <div class="container">
+
+      <!-- /.row -->
+      <div class="row">
+        <div class="col-sm-4 my-4">
+          <a class="card" href="/GameDevelopment/round5.html">
+            <img class="card-img-top" src="/content/images/game_dev/bvw/round5_icon.png" alt="">
+            <div class="card-body">
+              <h4 class="card-title">Dilemma</h4>
+              <p class="card-text">Room-scale, VR prototype focused on narrative and level traversal.</p>
+            </div>
+          </a>
+        </div>
+        <div class="col-sm-4 my-4">
+          <a class="card" href="neon-challenge.html">
+            <img class="card-img-top" src="/content/images/game_dev/dreamhack_17/gameplay_icon.PNG" alt="">
+            <div class="card-body">
+              <h4 class="card-title">Unity Neon Challenge - Project Bespin</h4>
+              <p class="card-text">Real-time animation focused on displaying environment.</p>
+            </div>
+          </a>
+        </div>
+        <div class="col-sm-4 my-4">
+          <a class="card" href="round2.html">
+            <img class="card-img-top" src="/content/images/game_dev/bvw/round2_icon.png" alt="">
+            <div class="card-body">
+              <h4 class="card-title">Samurai Siege</h4>
+              <p class="card-text">HTC Vive game developed on a <br/> 5-person team in 2-week period.</p>
+            </div>
+          </a>
+        </div>
+        <div class="col-sm-4 my-4">
+          <a class="card" href="round1.html">
+            <img class="card-img-top" src="/content/images/game_dev/bvw/round1_icon.png" alt="">
+            <div class="card-body">
+              <h4 class="card-title">The SoundBearier</h4>
+              <p class="card-text">Microsoft HoloLens game built in 2-weeks on a 5-person team.</p>
+            </div>
+          </a>
+        </div>
+        <div class="col-sm-4 my-4">
+          <a class="card" href="tenbuktu.html">
+            <img class="card-img-top" src="/content/images/game_dev/tenbuktu/tenbuktu_icon.png" alt="">
+            <div class="card-body">
+              <h4 class="card-title">Tenbuktu</h4>
+              <p class="card-text">Android game built and published in a week on 2-person team.</p>
+            </div>
+          </a>
+        </div>
+        <div class="col-sm-4 my-4">
+          <a class="card" href="dreamhack_17.html">
+            <img class="card-img-top" src="/content/images/game_dev/dreamhack_17/gameplay_icon.PNG" alt="">
+            <div class="card-body">
+              <h4 class="card-title">Dreamhack Jam 2017</h4>
+              <p class="card-text">Apocalypse-themed, 72 hour game jam with a 5-person team.</p>
+            </div>
+          </a>
+        </div>
+      <!--
+        <div class="col-sm-4 my-4">
+          <a class="card" href="round4.html">
+            <img class="card-img-top" src="/content/images/game_dev/bvw/round4_icon.png" alt="">
+            <div class="card-body">
+              <h4 class="card-title">The Rhythm of Love</h4>
+              <p class="card-text">Makey Makey story game created with 4 peers in a 2-week project.</p>
+            </div>
+          </a>
+        </div>
+      -->
+
+      </div>
+      <!-- /.row -->
+
+    </div>
+    <!-- /.container -->
+
+    <!-- Footer -->
+    <footer class="py-4 bg-dark">
+
+      <!-- /.container -->
+    </footer>
+
+    <!-- Bootstrap core JavaScript -->
+    <script src="/vendor/jquery/jquery.min.js"></script>
+    <script src="/vendor/popper/popper.min.js"></script>
+    <script src="/vendor/bootstrap/js/bootstrap.min.js"></script>
+    <script>
+      $(function() {
+        $("footer").load("/content/footer.html");
+        $("nav").load("/content/navigation.html", function() {
+          $("#game-development").addClass("active");
+          $("#game-development a").append("<span class='sr-only'>(current)</span>");
+        });
+      });
+    </script>
+
+  </body>
+
+</html>

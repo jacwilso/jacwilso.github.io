@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=320, height=device-height, target-densitydpi=medium-dpi"/>
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Jacob Wilson - Game/Software Developer</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="/css/blog-post.css" rel="stylesheet">
+
+  </head>
+
+  <body>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+    </nav>
+
+    <!-- Page Content -->
+    <div class="container">
+
+      <div class="row">
+
+        <!-- Post Content Column -->
+        <div class="col-lg-10 col-center">
+
+          <!-- Title -->
+          <h1 class="mt-4">Dilemma</h1>
+
+          <hr>
+
+          <h4 class="mt-4">Development</h4>
+          <ul>
+            <li>Role: Sole Programmer</li>
+            <li>Team Size: 5 (Tai Ching Cheung, Hyun (Howard) Jong Won, Kareem Omar, Naomi Burgess)</li>
+            <li>Duration: 2-weeks</li>
+            <li>Language: C# (Unity)</li> 
+            <li>Platform: HTC VIVE (VR)</li>
+          </ul>
+          <h5>Contributions</h5>
+          <ul>
+            <li>Programmed animation integration with locomotion (with waypoint system)</li>
+            <li>Programatically layered animations with avatar masks and weights</li>
+            <li>Architected OO system for linear, narrative experience</li>
+          </ul>
+
+          <hr>
+
+          <!-- Preview Image -->
+          <div class="txt-center">
+          	<iframe class="banner-img" src="https://www.youtube.com/embed/xrF_TP2scWQ" frameborder="0" gesture="media" allow="encrypted-media" allowfullscreen></iframe>
+          </div>
+
+          <hr>
+
+          <!-- Post Content -->
+          <p class="lead">On the project, I acted as sole programmer where I developed the game mechanics, integrated the story archs, and the characters' animation system within 2-weeks. The constraint of the project was to be function complete within 2-weeks; the game's core focus was on the role swapping narrative story utilizing the room-scale of the VIVE.</p>
+
+          <p>Dilemma has the guest embody a young inmate following his older cellmate in a prison escape. Your cellmate leads you through the prison in a stealthy manner, avoiding guards and climbing pipes to the roof. On the roof, the older prisoner makes the choice to attempt to save you rather than escaping alone, at which point you are caught by the guards, flashing you back to the prison cell. However this time in the cell, you no longer control the young prisoner but embody the older imate. You now lead your cellmate through the prison, however he is much clumiser than you were alerting the guards sooner. At the roof, the stakes are raised, you cross safely but the younger prisoner trips. The guards bust onto the roof and force you into a decision, save your cellmate and get caught or escape and watch him fall.</p>
+
+          <hr>
+
+          <div class="txt-center">
+            <img class="banner-img-4 img-fluid rounded" src="/content/images/game_dev/bvw/round5_1.png" alt="">
+            <img class="banner-img-4 img-fluid rounded" src="/content/images/game_dev/bvw/round5_2.png" alt="">
+            <img class="banner-img-4 img-fluid rounded" src="/content/images/game_dev/bvw/round5_3.png" alt="">
+            <img class="banner-img-4 img-fluid rounded" src="/content/images/game_dev/bvw/round5_4.png" alt="">
+          </div>
+
+          <hr>
+
+          <p>The project heavily relied on animations to convey the story, equally as much as dialogue, so having compelling animations was a must. For the primary characters, the animation controller had layer mask for each body part (head, left arm, left leg, etc.) and animations were downloaded from an online repository. Each layer was given a weight and override or additive property which was modified through script given certain story states. The motion of the characters were driven by the root bone of the model, which ensured the speed of any movement looked convincing and there wasn't any animation slipping.</p>
+
+          <p>In conjunction, I developed a rudimentary waypoint system for the characters to travel. What was challenging was determining when the agent had reached a waypoint. Although the animations were being blended between speeds, ie idle to walk to run, there was still opportunity for the root bone to pass over a waypoint inbetween frames. I iterated over multiple methods of target matching and am not convinced I was able to select the best one given the limited timeframe of the project.</p>
+          <p>One method was to have a bounding area around a waypoint, however this presented issues on either extremes: having too small of a bounding zone meant the agent's root could pass over a waypoint inbtween frames but having too large could have the agent end up in an odd location, such as in a wall.</p>
+          <p>The next method I used was to track the derivative of the agent crossing the point, so long as the agent is aimed at the point it will pass over it. The distance between the agent and the waypoint will continue to decrease while the agent is approaching it, however once the agent passes over the point the distance will begin to increase; the slope goes from negative to positive.</p>
+          <p>The final iteration I took was using a Unity brewed solution, integrating the nav agent/mesh system with the animation. The nav agent will attempt to reach the point, using the next position to determine the velocity which influences the blend of the animation. The issue with Unity nav system is the agent may separate from the animation, even if the agent is damped onto the character, as well as not having full control over the components so issues may not be reproducible nor solvable.</p>
+
+          <hr>
+
+          <div class="txt-center">
+            <img class="banner-img-4 img-fluid rounded" src="/content/images/game_dev/bvw/round5_5.png" alt="">
+            <img class="banner-img-4 img-fluid rounded" src="/content/images/game_dev/bvw/round5_6.png" alt="">
+            <img class="banner-img-4 img-fluid rounded" src="/content/images/game_dev/bvw/round5_7.png" alt="">
+            <img class="banner-img-4 img-fluid rounded" src="/content/images/game_dev/bvw/round5_8.png" alt="">
+          </div>
+
+          <hr>
+
+          <p>The architecture of the project was also integral since the story was played out twice. Every interactable object and character needed to be reset with the same transform, so a parent class was established to retain that information and an event called for the reset. Parent classes were also constructed for the human characters with sub classes of guards and prisoner to contain relevant information. An interface was constructed for functions regarding the separate playthroughs, since most classes contributed to the state machine driving the story. Both playthroughs of the story were maintained in a manager class, which used coroutine functions to wait for key events and sent out actions which other classes were listening to, rather than keeping track of all classes within the manager.</p>
+
+          <hr>
+
+          <h5>ETC Fall Festival</h5>
+
+          <div class="txt-center">
+          	<iframe class="banner-img" src="https://www.youtube.com/embed/mYvy5kR9QqM" frameborder="0" gesture="media" allow="encrypted-media" allowfullscreen></iframe>
+          </div>
+
+          <div class="txt-center">
+            <img class="banner-img-4 img-fluid rounded" src="/content/images/game_dev/bvw/round5_waitingCellEmpty.JPG" alt="">
+            <img class="banner-img-4 img-fluid rounded" src="/content/images/game_dev/bvw/round5_waitingCellFull.JPG" alt="">
+            <img class="banner-img-4 img-fluid rounded" src="/content/images/game_dev/bvw/round5_viveCellEmpty.JPG" alt="">
+            <img class="banner-img-4 img-fluid rounded" src="/content/images/game_dev/bvw/round5_viveCellFull.JPG" alt="">
+          </div>
+
+        </div>
+
+      </div>
+      <!-- /.row -->
+
+    </div>
+    <!-- /.container -->
+
+    <!-- Footer -->
+    <footer class="py-3 bg-dark">
+          <p class="m-0 text-center text-white mb-3">Updated on October 11, 2017</p>
+          <div id="footer"></div>
+    </footer>
+
+    <!-- Bootstrap core JavaScript -->
+    <script src="/vendor/jquery/jquery.min.js"></script>
+    <script src="/vendor/popper/popper.min.js"></script>
+    <script src="/vendor/bootstrap/js/bootstrap.min.js"></script>
+    <script>
+      $(function() {
+        $("#footer").load("/content/footer.html");
+        $("nav").load("/content/navigation.html");
+      });
+    </script>
+
+  </body>
+
+</html>

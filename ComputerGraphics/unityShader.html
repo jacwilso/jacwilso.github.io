@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=320, height=device-height, target-densitydpi=medium-dpi"/>
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Jacob Wilson - Game/Software Developer</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="/css/blog-post.css" rel="stylesheet">
+
+  </head>
+
+  <body>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+    </nav>
+
+    <!-- Page Content -->
+    <div class="container">
+
+      <div class="row">
+
+        <!-- Post Content Column -->
+        <div class="col-lg-10 col-center">
+
+        <!-- Title -->
+        <h1 class="mt-4">Unity Shader System</h1>
+
+        <hr>
+
+        <!-- Date/Time -->
+        <p>Language: C# (Unity), Unity ShaderLab</p>
+		    <h5>Contributions</h5>
+        <ul>
+          <li>Programmed shader for albedo, detail, normal (detail normal), emission, occlusion, and detail mask maps</li>
+          <li>Programmed for multiple lighting and shadows</li>
+          <li>Built reflections into shaders using reflection probes</li>
+        </ul>
+        
+        <hr>
+
+          <!-- Preview Image -->
+          <div class="txt-center">
+            <img class="banner-img-2 img-fluid rounded" src="/content/images/graphics/shaders/splatMap.png" alt="">
+            <img class="banner-img-2 img-fluid rounded" src="/content/images/graphics/shaders/rendering_more-complexity.png" alt="">
+          </div>
+
+          <hr>
+
+          <!-- Post Content -->
+          <p class="lead">The Unity material system has been developed to allow artists, game designers and game programmers to easily create realistic looking artwork. I sought out to better understand the Unity material system by programming the vertex and fragment shaders from scratch.</p>
+
+          <p>The splat map on the left was during the beginning of development, I had created a basic vertex and fragment shader to take up to 5 textures to blend together by using the RGBA channels. The right picture is of 2 sepearate textures, a circuit and lava, which display albedo, normal, detail, detail normal, metallic/smoothness, and emission maps. The shader has a forward base and add passes and shadow casting to be able to handle the different types of lights. Within each pass there are multi compile and shader feature statements to allow for the different shader variants.</p>
+
+          <hr>
+
+          <!-- Preview Image -->
+          <div class="txt-center">
+            <img class="banner-img-2 img-fluid rounded" src="/content/images/graphics/shaders/rendering_plane-reflectivity.png" alt="">
+            <img class="banner-img-2 img-fluid rounded" src="/content/images/graphics/shaders/rendering_sphere-reflectivity.png" alt="">
+          </div>
+
+          <hr>
+          <p>I also built in reflection into the shader, and by using Unity's reflection probes I was able to create mirrors. The maps of the materials can be changed with the reflection, for example by adding a normal map to the material, the mirror can be turned into a water-like surface.</p>
+
+          <p>So far, I have had the most trouble with programming for multiple lights because I hadn't delved into Unity's lighting and quality settings in that much depth previously. To understand how the lighting was being processed, I used the frame debugger to step through the rendering process and watched the draw calls of lighting change based on the number of lights to ensure the shader wasn't overworking.</p>
+
+        </div>
+
+      </div>
+      <!-- /.row -->
+
+    </div>
+    <!-- /.container -->
+
+    <!-- Footer -->
+    <footer class="py-3 bg-dark">
+          <p class="m-0 text-center text-white mb-3">Updated on October 11, 2017</p>
+          <div id="footer"></div>
+    </footer>
+
+    <!-- Bootstrap core JavaScript -->
+    <script src="/vendor/jquery/jquery.min.js"></script>
+    <script src="/vendor/popper/popper.min.js"></script>
+    <script src="/vendor/bootstrap/js/bootstrap.min.js"></script>
+    <script>
+      $(function() {
+        $("#footer").load("/content/footer.html");
+        $("nav").load("/content/navigation.html");
+      });
+    </script>
+
+  </body>
+
+</html>

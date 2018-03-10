@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=320, height=device-height, target-densitydpi=medium-dpi"/>
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Jacob Wilson - Game/Software Developer</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="/css/blog-post.css" rel="stylesheet">
+
+  </head>
+
+  <body>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+    </nav>
+
+    <!-- Page Content -->
+    <div class="container">
+
+      <div class="row">
+
+        <!-- Post Content Column -->
+        <div class="col-lg-10 col-center">
+
+          <!-- Title -->
+          <h1 class="mt-4">Noise Visualization</h1>
+
+          <hr>
+
+          <!-- Date/Time -->
+          <p>Language: C# (Unity)</p>
+          <h5>Contributions</h5>
+          <ul>
+            <li>Programmed value and Perlin noise with 2D and 3D functions</li>
+            <li>Applied pseudorandom noise onto grayscale and gradient textures and 3D mesh</li> 
+          </ul>
+
+          <hr>
+
+          <!-- Preview Image -->
+          <div class="txt-center">
+            <img class="banner-img-2 img-fluid rounded" src="/content/images/graphics/demos/noise_perlin2D.png" alt="">
+            <img class="banner-img-2 img-fluid rounded" src="/content/images/graphics/demos/noise_value2D.png" alt="">
+          </div>
+
+          <hr>
+
+          <!-- Post Content -->
+          <p class="lead">I programmed random and pseudorandom noise functions which would generate texture gradients, for the purpose of implementing them into a procedurally generating terrain.</p>
+
+          <p>To begin, I programmed a script to allow pixels to be shaded at variable resolutions on a texture. Adding in simple noise by randomly varying the color white created a TV fuzz looking texture; however this was undesirable because there was harsh transisitions between adjacent pixels. I used lattice noise and a hashing array to produce the pseudorandom pattern, and restricted the resolution to 256 based on the size of my hash array. For the 2D noise implementation, I started by programming noise in 1D (vertically) then transitioned into 2D noise function. To resolve the sharp transition between adjacent pixels, I implemented Value and Perlin noise. I programmed the noise function to handle fractal noise to be able to add additional details lesser pronounced than the larger features. I implemented an editor gui which controlled the dimensionality of the noise, frequency, resolution, noise type, octaves, and gradient coloring. To transition into 3D, rather than using a quad and I pixels, I used vertex vertical positioning. I programmed my own generated mesh, which allowed the scalable resolution from the 2D framework. I calculated the normals of the mesh after the alterations to be able to handle incoming light by programming the finite difference formula in multiple dimensions. </p>
+
+          <hr>
+
+          <!-- Preview Image -->
+          <div class="txt-center">
+            <img class="banner-img-2 img-fluid rounded" src="/content/images/graphics/demos/noise_perlin3D.png" alt="">
+          </div>
+
+
+          <!--<p>Explain 3d noise.</p>
+
+          <p>What I learned/did and why it is important.</p>-->
+
+        </div>
+
+      </div>
+      <!-- /.row -->
+
+    </div>
+    <!-- /.container -->
+
+    <!-- Footer -->
+    <footer class="py-3 bg-dark">
+          <p class="m-0 text-center text-white mb-3">Updated on October 11, 2017</p>
+          <div id="footer"></div>
+    </footer>
+
+    <!-- Bootstrap core JavaScript -->
+    <script src="/vendor/jquery/jquery.min.js"></script>
+    <script src="/vendor/popper/popper.min.js"></script>
+    <script src="/vendor/bootstrap/js/bootstrap.min.js"></script>
+    <script>
+      $(function() {
+        $("#footer").load("/content/footer.html");
+        $("nav").load("/content/navigation.html");
+      });
+    </script>
+
+  </body>
+
+</html>

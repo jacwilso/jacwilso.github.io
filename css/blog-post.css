@@ -1,0 +1,44 @@
+/*!
+ * Start Bootstrap - Blog Post (http://startbootstrap.com/template-overviews/blog-post)
+ * Copyright 2013-2017 Start Bootstrap
+ * Licensed under MIT (https://github.com/BlackrockDigital/startbootstrap-blog-post/blob/master/LICENSE)
+ */
+
+@import '/css/business-frontpage.css';
+
+body {
+    padding-top: 54px;
+}
+
+@media (min-width: 992px) {
+    body {
+        padding-top: 56px;
+    }
+}
+
+.col-center {
+	margin: auto;
+}
+
+.txt-center {
+	text-align: center;
+}
+
+.banner-img {
+	width: 80%;
+	height: 400px;
+}
+
+.banner-img-2 {
+	width: 40%;
+	margin: 10px 10px 10px;
+}
+
+.banner-img-4 {
+	width: 40%;
+	margin: 10px 10px 10px;
+}
+
+.block {
+	display: block;
+}

@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=320, height=device-height, target-densitydpi=medium-dpi"/>
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Jacob Wilson - Game/Software Developer</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="/css/business-sidepage.css" rel="stylesheet">
+
+  </head>
+
+  <body>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+    </nav>
+
+    <!-- Header with Background Image -->
+    <header class="business-header">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12">
+            <h1 class="display-4 text-center text-white mt-4">Computer Graphics</h1>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Page Content -->
+    <div class="container">
+
+      <!-- /.row -->
+      <div class="row">
+        <div class="col-sm-4 my-4">
+          <a class="card" href="unityShader.html">
+              <img class="card-img-top" src="/content/images/graphics/shaders/rendering_more-complexity_icon.png" alt="">
+              <div class="card-body">
+                <h4 class="card-title">Unity Shader System</h4>
+                <p class="card-text">Rebuilt Unity's material/shader system from scratch.</p>
+              </div>
+          </a>
+        </div>
+        <div class="col-sm-4 my-4">
+          <a class="card" href="noise.html">
+              <img class="card-img-top" src="/content/images/graphics/demos/noise_perlin3D_icon.png" alt="">
+              <div class="card-body">
+                <h4 class="card-title">Noise Visualization</h4>
+                <p class="card-text">Programmed and visualized noise functions in 2D.</p>
+              </div>
+          </a>
+        </div>
+        <div class="col-sm-4 my-4">
+          <a class="card" href="opengl.html">
+              <img class="card-img-top" src="/content/images/graphics/opengl/3DGraphic_icon.png" alt="">
+              <div class="card-body">
+                <h4 class="card-title">OpenGL</h4>
+                <p class="card-text">Work with OpenGL with links to source code.</p>
+              </div>
+          </a>
+        </div>
+
+      </div>
+      <!-- /.row -->
+
+    </div>
+    <!-- /.container -->
+
+    <!-- Footer -->
+    <footer class="py-4 bg-dark">
+
+      <!-- /.container -->
+    </footer>
+
+    <!-- Bootstrap core JavaScript -->
+    <script src="/vendor/jquery/jquery.min.js"></script>
+    <script src="/vendor/popper/popper.min.js"></script>
+    <script src="/vendor/bootstrap/js/bootstrap.min.js"></script>
+    <script>
+      $(function() {
+        $("footer").load("/content/footer.html");
+        $("nav").load("/content/navigation.html", function() {
+          $("#computer-graphics").addClass("active");
+          $("#computer-graphics a").append("<span class='sr-only'>(current)</span>");
+        });
+      });
+    </script>
+
+  </body>
+
+</html>

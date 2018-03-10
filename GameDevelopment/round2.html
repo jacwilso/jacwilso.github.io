@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=320, height=device-height, target-densitydpi=medium-dpi"/>
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Jacob Wilson - Game/Software Developer</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="/css/blog-post.css" rel="stylesheet">
+
+  </head>
+
+  <body>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+    </nav>
+
+    <!-- Page Content -->
+    <div class="container">
+
+      <div class="row">
+
+        <!-- Post Content Column -->
+        <div class="col-lg-10 col-center">
+
+          <!-- Title -->
+          <h1 class="mt-4">Samurai Siege</h1>
+
+          <hr>
+
+          <h4 class="mt-4">Development</h4>
+          <ul>
+            <li>Role: Programmer</li>
+            <li>Team Size: 5 (Yujin Ariza, Dustin Stephan, Cheung Tai Ching,  Kangyan Li)</li>
+            <li>Duration: 2-weeks</li>
+            <li>Language: C# (Unity)</li> 
+            <li>Platform: HTC Vive (VR)</li>
+          </ul>
+          <h5>Contributions</h5>
+          <ul>
+            <li>Programmed arrow spawning and ballistics for unpredictable moving target</li>
+            <li>Programmed army of soldiers and general's interaction with player and world</li> 
+          </ul>
+
+          <hr>
+
+          <!-- Preview Image -->
+          <div class="txt-center">
+            <iframe class="banner-img" src="https://www.youtube.com/embed/EYjTUm-hVHE" frameborder="0" allowfullscreen"></iframe>
+          </div>
+
+          <hr>
+
+          <!-- Post Content -->
+          <p class="lead">For this rapid prototype, I was co-programmer and took lead on the shield blocking mechanic, arrow spawning and ballistics, as well as the soldier movement and interaction. The project was built in a 2-week period with a focus on the feeling of freedom and intuitive gameplay.</p>
+
+          <p>The experience has the player as a soldier in a Japanese calvary group, and while they start towards the middle by the end of the experience the player is leading the charge to siege the castle and defeat the enemy samurai general. The player is placed on a wooden rocking horse to restrict the movement of the player about the space, then the player must grab the glowing square which is attached to the rein. During the 1st stage as the player crosses the bridge, arrows are fired from archer towers at the player and the army. The other soldiers raise their shields to alert the player of the incoming threat.</p>
+
+          <hr>
+
+          <div class="txt-center">
+            <img class="banner-img-4 img-fluid rounded" src="/content/images/game_dev/bvw/round2_start.png" alt="">
+            <img class="banner-img-4 img-fluid rounded" src="/content/images/game_dev/bvw/round2_end.png" alt="">
+            <img class="banner-img-4 img-fluid rounded" src="/content/images/game_dev/bvw/round2_city.png" alt="">
+            <img class="banner-img-4 img-fluid rounded" src="/content/images/game_dev/bvw/round2_sceneshot.png" alt="">
+          </div>
+
+          <hr>
+          
+          <p>The arrow ballistics went through multiple iterations due to the unknown movement of the player and the requirement that the arrow should hit the player's target box so the player has the opportunity to utilize their shield. The player's movement is locked in the forward (z) direction but not in the x-direction, which simplifies the problem. During first prototype, when the player was locked in place, I used physics trajectory equations to calculate the force require to launch the arrow from any location with any angle. When the player was moving forward, I was able to predict the player's location based on their current velocity at the time the arrow was released. Where this method failed was when the player was able to change their speed and move their position left to right, because the arrow would land too far/behind the player. A directed, homing arrow caused 2 problems it looked unrealistic as well as being difficult to notice until the last minute because of size. I tried to attach a sprite to the arrow tip, however player's confused the tip with a star and no longer associated them as a threat. The sprite was changed for flame trail particle effect which reinforced the sense of threat.</p>
+
+          <p>The fix I implemented was to have 2 separate types of motion, one which targets the player and one which targets the soldiers. The motion targetting the soldiers used the ballistic with predictions code without any flame trails, since their motion was less erratic and the player shouldn't focus on those arrows. The motion targetting the player used a ballistic calculation without prediction as well as the flame trails, the cheat was to parent the arrows position to the player. The player couldn't notice this as the arrows were moving forward relative to them and were moved behind the wall out of sight of the player, as well as the arrows had a realistic arch. The player would see other arrows pass by towards the other soldiers which would make them feel like they aren't the only one being attacked too.</p>
+
+          <!--<p>Could talk about Soliders controller, Shield blocking</p>-->
+
+        <hr>
+
+        <div class="txt-center">
+          <img class="banner-img-2 img-fluid rounded" src="/content/images/game_dev/bvw/round2_topview.png" alt="">
+          <img class="banner-img-2 img-fluid rounded" src="/content/images/game_dev/bvw/round2_right_path.png" alt="">
+        </div>
+
+        </div>
+
+      </div>
+      <!-- /.row -->
+
+    </div>
+    <!-- /.container -->
+
+    <!-- Footer -->
+    <footer class="py-3 bg-dark">
+          <p class="m-0 text-center text-white mb-3">Updated on October 11, 2017</p>
+          <div id="footer"></div>
+    </footer>
+
+    <!-- Bootstrap core JavaScript -->
+    <script src="/vendor/jquery/jquery.min.js"></script>
+    <script src="/vendor/popper/popper.min.js"></script>
+    <script src="/vendor/bootstrap/js/bootstrap.min.js"></script>
+    <script>
+      $(function() {
+        $("#footer").load("/content/footer.html");
+        $("nav").load("/content/navigation.html");
+      });
+    </script>
+
+  </body>
+
+</html>

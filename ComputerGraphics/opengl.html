@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=320, height=device-height, target-densitydpi=medium-dpi"/>
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Jacob Wilson - Game/Software Developer</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="/css/blog-post.css" rel="stylesheet">
+
+  </head>
+
+  <body>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+    </nav>
+
+    <!-- Page Content -->
+    <div class="container">
+
+      <div class="row">
+
+        <!-- Post Content Column -->
+        <div class="col-lg-10 col-center">
+
+          <!-- Title -->
+          <h1 class="mt-4">OpenGL</h1>
+
+          <hr>
+
+          <!-- Date/Time -->
+          <p>Language: C++ (OpenGL)</p>
+          <h5>Contributions</h5>
+          <ul>
+            <li>Programmed applications in OpenGL C++: 2D/3D, vertex and fragment shaders, bezier curves, and collision detection</li>
+            <li>Understand the rendering pipeline of OpenGL and mathematics of operations</li> 
+          </ul>
+
+          <hr>
+
+          <!-- Preview Image -->
+          <div class="txt-center">
+            <img class="banner-img-2 img-fluid rounded" src="/content/images/graphics/opengl/3DGraphic.png" alt="">
+            <img class="banner-img-2 img-fluid rounded" src="/content/images/graphics/opengl/textureGraphic.png" alt="">
+          </div>
+
+          <hr>
+
+          <!-- Post Content -->
+          <p class="lead">Using the OpenGL library, I progammed applications in 2D and 3D, vertex and fragment shaders, bezier curves, and collision detection. The course emphasized the rendering pipeline and to understand the mathematics and operation of the stages in the pipeline.</p>
+
+          <div class="text-center mb-4">
+            <div class="d-inline">
+              <a class="btn btn-default btn-lg" target="_blank" href="https://github.com/jacwilso/GuildWars-441MP">
+                <i class="fa fa-github fa-lg fa-inverse" aria-hidden="true"></i>&nbsp;
+                <span class="fa-inverse">View on Github</span>
+              </a>
+            </div>
+          </div>
+
+          <p>These samples use the OpenGL library to animate, texture, and introduce a flat shader. The texture objects are wrapped using the SOIL library from .jpg images. A virtual class was written to texture cubic objects which allowed code reuse for the head of the right character and the skybox. The center object was import from an .obj file and a minimum-pass through shader was applied. Although an introductory course, the fixed-function pipeline and flat shaders wer eventually replaced with shaders reimplementing the Blinn-Phong model. The characters are bound to the grid, thus at the boundary conditions it will stop advancing.</p>
+          
+          <p>Bezier curves and surfaces, viewports, object manipulation, parametric arc length and arc step animation, and various camera types are used in the other project. The character is bound to the Bezier surface while he moves throughout the scene. He rotates with the normals of the curve, as well as stopping at the edges. The user can chose first person, third person, sky view, and free camera. Another two models are travelling along the bezier curve in the background with the different animations and the camera can be switched to their perspective. A basic collision detection, complexity of O(n^2), was used to detect collision with the objects placed on the scene.</p>
+
+          <p>For my end semester project my team of 3 wanted to implement a realistic solar system, so we used bump map shaders to provide visual contrast of the planets rather than plain texturing. The relative size of the system was also compromised, and the bump maps provided better performance over realistic meshes. Since then, I have continued expanding my knowledge with computer graphics and shaders through text, such as Real-Time Rendering, and Unity shader programming.</p>
+
+          <!--<p>Rebuilt shader pipeline</p>-->
+
+          <hr>
+
+          <!-- Preview Image -->
+          <div class="txt-center">
+            <img class="banner-img-2 img-fluid rounded" src="/content/images/graphics/opengl/2DGame.png" alt="">
+            <img class="banner-img-2 img-fluid rounded" src="/content/images/graphics/opengl/2DGraphic.png" alt="">
+          </div>
+
+          <hr>
+
+          <!-- Post Content -->
+          <p class="lead">2D graphics focus on the basics of the rendering pipeline, verticies to primitives to color on the screen. With this strict focus, I developed a strong basis which was able to be transferred into 3D.</p>
+
+
+          <p>The sample character was designed to replicate Wilson from Don't Starve and the background to replicate Pallet Town from Pokemon. The user can control the character about the screen and at the edges the character will transistion to a new background image. The character is drawn hierarchically to animate movement. The user can click about the screen to draw and animate a torch at the mouse location.</p>
+
+          <p>The game sample is an individual project which emphasizes pixel art and simple collision detection. Each block was recreated by hand in OpenGL by placing colored quads. A text file was used to describe the level layout (each model had a distinct character), thus a different text file loaded a different level. Enemies are placed throughout the scene and are animated similar to the game to obstruct the player. The collision detection handles the character jumping, landing on ground or enemies, gravity, and collision with blocks above. The collision detection used a grid system to check movement and enemies, however this caused choppy gameplay. To remedy the gameplay issue, later on in the semester, I implemented the primitive collision detection at O(n$^2$) cost.</p>
+
+          <!--<p>Talk about 2d (briefly mention transition).</p>-->
+
+          <!--<p>What I learned/did and why it is important.</p>-->
+          
+        </div>
+
+      </div>
+      <!-- /.row -->
+
+    </div>
+    <!-- /.container -->
+
+    <!-- Footer -->
+    <footer class="py-3 bg-dark">
+          <p class="m-0 text-center text-white mb-3">Updated on October 11, 2017</p>
+          <div id="footer"></div>
+    </footer>
+
+    <!-- Bootstrap core JavaScript -->
+    <script src="/vendor/jquery/jquery.min.js"></script>
+    <script src="/vendor/popper/popper.min.js"></script>
+    <script src="/vendor/bootstrap/js/bootstrap.min.js"></script>
+    <script>
+      $(function() {
+        $("#footer").load("/content/footer.html");
+        $("nav").load("/content/navigation.html");
+      });
+    </script>
+
+  </body>
+
+</html>
