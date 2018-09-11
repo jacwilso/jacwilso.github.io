@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=320, height=device-height, target-densitydpi=medium-dpi"/>
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Jacob Wilson - Game/Software Developer</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="/css/blog-post.css" rel="stylesheet">
+
+  </head>
+
+  <body>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+    </nav>
+
+    <!-- Page Content -->
+    <div class="container">
+
+      <div class="row">
+
+        <!-- Post Content Column -->
+        <div class="col-lg-10 col-center">
+
+          <!-- Title -->
+          <h1 class="mt-4">Galactic Commander Tools - AR Mobile Game</h1>
+
+          <hr>
+
+          <!-- Date/Time -->
+          <p>Language: C# (Unity), Unity ShaderLab</p>
+
+          <hr>
+
+          <!-- Preview Image -->
+          <div class="txt-center">
+            <iframe class="banner-img" src="https://www.youtube.com/embed/1Gef3Wu7xLw" frameborder="0" allowfullscreen"></iframe>
+          </div>
+
+          <hr>
+
+          <!-- Post Content -->
+          <p class="lead">These are some in-progress images from a game I am making with a friend.</p>
+
+          <h3>Wheel Segment Shader</h3>
+          <p>The game revolves around actions points so rather than having the user enter into a UI screen
+            a UI wheel is presented around the ship (cube in the images below). The wheel gets divided into
+            segments based on how many actions that ship can do, which is vairable per ship so can't be a single
+            texture. Originally I did this by using sprite masks but this had too many objects and masks. 
+            I then programmed a shader which creates the donut shape (variably set by the developer), then depending on
+            the number of segments needed will divide the circle into equal pieces. This can all be run during edit
+            mode so the designer can see what he/she is changing.
+          </p>
+
+          <hr>
+
+          <!-- Preview Image -->
+          <div class="txt-center">
+            <img class="banner-img-4 img-fluid rounded" src="/content/images/blogs/galactic_commander/segments_0.png" alt="">
+            <img class="banner-img-4 img-fluid rounded" src="/content/images/blogs/galactic_commander/segments_3.png" alt="">
+            <img class="banner-img-4 img-fluid rounded" src="/content/images/blogs/galactic_commander/segments_5.png" alt="">
+            <img class="banner-img-4 img-fluid rounded" src="/content/images/blogs/galactic_commander/segments_8.png" alt="">
+          </div>
+
+          <hr>
+          
+          <p>The ship's (cubes) attacks on the face which is aimed toward another ship (cube), so this
+            is a visualization tool for the designer (and myself) to be able to debug what face corresponds
+            to the one pointing at another ship. The tool has 2 cubes with connecting lines (all displayed in white) 
+            which display the field of view of each side of the ship. When debugging toward a certain ship
+            the face pointing towards that ship will turn red. The math behind the calculation of the directions is
+            simply 5 dot products (one for each face of the pseudo-frustum, excluding the far face since distance 
+            isn't doesn't matter for this tool), if one fails (is negative) the object must be on another face of the
+            ship. The reason for the weird rotations is the ships will be placed by the user in AR so weird angles
+            are more likely, as well as the original tool didn't account for the angle of the ship.
+            </p>
+
+          <hr>
+
+          <div class="txt-center">
+            <img class="img-fluid rounded mb-3 mt-2" src="/content/images/blogs/galactic_commander/zone_1.png" alt="">
+            <img class="banner-img-2 img-fluid rounded" src="/content/images/blogs/galactic_commander/zone_2.png" alt="">
+            <img class="banner-img-2 img-fluid rounded" src="/content/images/blogs/galactic_commander/zone_3.png" alt="">
+          </div>
+
+          <hr>
+
+
+        </div>
+
+      </div>
+      <!-- /.row -->
+
+    </div>
+    <!-- /.container -->
+
+    <!-- Footer -->
+    <footer class="py-3 bg-dark">
+          <p class="m-0 text-center text-white mb-3">Updated on October 15, 2017</p>
+          <div id="footer"></div>
+    </footer>
+
+    <!-- Bootstrap core JavaScript -->
+    <script src="/vendor/jquery/jquery.min.js"></script>
+    <script src="/vendor/popper/popper.min.js"></script>
+    <script src="/vendor/bootstrap/js/bootstrap.min.js"></script>
+    <script>
+      $(function() {
+        $("#footer").load("/content/footer.html");
+        $("nav").load("/content/navigation.html");
+      });
+    </script>
+
+  </body>
+
+</html>
