@@ -1,0 +1,295 @@
+<!doctype html>
+<html lang="en" class="no-js">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="canonical" href="https://html5-templates.com/" />
+    <title>Jacob Wilson</title>
+    <meta name="description" content="Portfolio for Jacob Wilson.">
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js"></script>
+</head>
+
+<body>
+	<header>
+		<!-- <div id="logo"><img src="/logo.png">Jacob&nbsp;Wilson</div> -->
+		<div id="logo"><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Jacob&nbsp;Wilson</p></div>
+		<nav>  
+			<ul>
+                <li><a href="/">Home</a></li>
+                <li><a href="/">Resume</a></li>
+                <li><a href="https://github.com/jacwilso">Github</a></li>
+                <li><a href="https://www.linkedin.com/in/jacwilso/">LinkedIn</a></li>
+			</ul>
+		</nav>
+	</header>
+	<section>
+		<strong>By day, I'm a software engineer at Apple Technology Development Group and by night I'm an amateur tools, games, and app developer. You can reach out to me through <a href="https://twitter.com/jacwilso0">Twitter</a> and <a href="mailto:jacwilso0@gmail.com">Email</a>.</strong>
+	</section>
+	<section id="pageContent">
+		<main role="main">
+			<h1 style="padding-bottom:10px;">Projects</h1>
+			<article>
+				<h2>Isetta Game Engine</h2>
+                <h3>Engine Programmer | C++ | Windows | Fall 2018</h3>
+                <a href="https://isetta.io"><button type="button">Website</button></a>
+				<a href="https://github.com/Isetta-Team/Isetta-Engine"><button type="button">Github</button></a>
+				<p>
+					The Isetta Engine project was a team of 4 junior developers developing our first game engine in just 3-months. 
+					The goal wasn't to build the best engine but to help demystify engine development for ourselves as well as other novice engine developers by documenting the thoughts and decisions we made throughout. 
+					Interviews were also conducted with industry professionals to pull gain insights and published in a book. 
+				</p>
+				<ul> <!-- TODO: condense -->					
+					<li>Developed logging system with filtering to enable debugging</li>
+					<li>Created a GUI abstraction layer using Dear, ImGui API</li>
+					<li>Implemented an engine configuration system and built tool using WPF to manage</li>
+					<li>Integrated 3rd-party profiler to enable performance profiling</li>
+					<li>Setup the build system/pipeline for building engine into dll</li>
+					<li>Handled resource management for engine and game, built asset processing tool</li>
+					<li>Developed editor tools in engine (console, inspector, heirarchy)</li>
+					<li>Integrated OpenGL over main rendering for debug drawing</li>
+					<li>Hosted a game jam with the engine and wrote a post-mortem on the development</li>
+					<li>Documented all technical desicions and implementation hosted on the website.</li>
+					<li>Pitched the project to faculty through rounds of presentations and refinement</li>
+					
+					<li></li>
+					<li>Filesystem reading/writing files via Windows filesystem API</li>
+					<li>Collision math/detection for primitive shapes</li>
+					<li>Custom array with memory management</li>
+					<li>Level loading</li>
+				</ul>
+				<img src="Resources/home/isetta/icon.PNG" class="image">
+			</article>
+			<article>
+				<h2>uFighter Tool Development</h2>
+				<h3>Tools Programmer | C# | Mobile | Spring 2019</h3>
+				<button onclick="openModal(this)" data-images="
+					Resources/home/tonk-tonk/TrailerCustomization.png,
+					Resources/home/tonk-tonk/TrailerCustomTimeline.png,
+					Resources/home/tonk-tonk/TrailerUnityTimeline.png,
+					Resources/home/tonk-tonk/AnimationEventValidation.png,
+				">Images</button>
+				<p>
+					uFighter is a mobile game being developed by Tonk Tonk games where I worked as a junior developer.
+					My main responsibilities focused on team workflow and how it could be improved.
+				</p>
+                <ul>
+					<li>Developed timeline editor tool used by animator to create trailers for investors</li>
+					<li>Bundled assets more efficiently which resulted in a 752% increase in load speeds</li>
+					<li>Built tool to validate animation events with errors exported into csv</li> 
+					<li>Started automated testing suite to validate UI, network, and different modes of game to avoid regression</li>
+					<li>Developed editor tool for animator to segment and save animations to save memory of build</li>
+					<li>Merged multiple build tools into a single, simpler solution when building app</li>
+				</ul>
+				<img src="Resources/home/tonk-tonk/AnimationSegmenter.png" class="image" style="width:60%"">
+			</article>
+			<article>
+				<h2>Dilemma VR Game</h2>
+                <h3>Gameplay Programmer | C# | HTC Vive (VR) | Fall 2018</h3>
+				<a href="https://www.youtube.com/watch?v=xrF_TP2scWQ"><button type="button">Video</button></a>
+				<button onclick="openModal(this)" data-images="
+					Resources/home/dilemma/round5_1.png,
+					Resources/home/dilemma/round5_2.png,
+					Resources/home/dilemma/round5_3.png,
+					Resources/home/dilemma/round5_4.png,
+					Resources/home/dilemma/round5_waitingCell.JPG,
+					Resources/home/dilemma/round5_playtest.JPG,
+				">Images</button>
+				<p>
+					Dilemma is a room-scale VR experience focused on narrative and level traversal. 
+					The game was developed in a 2 week period using Unity where I acted as the sole programmer on the 5 person team.
+				</p>
+				<ul>
+					<li>Programmed animation integration with layered animations, avatar masks and weights</li>
+					<li>Developed simple AI system to guide player with locomotion and waypoint system</li>
+					<li>Created a timeline tool to add/remove voice over and interactions into the linear experience</li>
+				</ul>
+				<img src="Resources/home/dilemma/gameplay.gif" class="image">
+			</article>
+			<article>
+				<h2>Unity Neon Challenge</h2>
+				<h3>Tools Progammer | C# | Winter 2018</h3>
+				<a href="https://www.youtube.com/watch?v=vHlxO9IiSvM&t=1s"><button type="button">Video</button></a>
+				<button onclick="openModal(this)" data-images="
+				Resources/home/neon-challenge/top_view_connections.png,
+				Resources/home/neon-challenge/camera_frustrums.png,
+				Resources/home/neon-challenge/generator_building.png,
+				Resources/home/neon-challenge/env_elevator.gif,
+					Resources/home/neon-challenge/timeline_camera.png,
+					Resources/home/neon-challenge/generator_environment.png,
+				">Images</button>
+				<p>
+					The challenge was a month-long animation project with some of Unity's newly released tools (at the time): CinemaMachine and Timeline.
+					I took responsibility of the asset pipeline and remote workflow as the project was primarily developed remote with the 7 person team.
+				</p>
+				<ul>
+					<li>Developed editor tools to generate procedural buildings from asset modules</li>
+					<li>Created workflow for team to use to avoid merge conflicts and to enable artists to use timeline tools</li>
+					<li>Programmed visualization of extendable-bridge connections and timings</li>
+				</ul>
+				<img src="Resources/home/neon-challenge/env_rotation.gif" class="image">
+			</article>
+			<article>
+				<h2>Samurai Seige</h2>
+				<h3>Gameplay Programmer | C# | HTC Vive (VR) | Fall 2018</h3>
+				<a href="https://www.youtube.com/watch?v=EYjTUm-hVHE&t=24s"><button type="button">Video</button></a>
+				<button onclick="openModal(this)" data-images="
+					Resources/home/samurai-seige/round2_city.png,
+					Resources/home/samurai-seige/round2_topview.png,
+					Resources/home/samurai-seige/round2_sceneshot.png,
+					Resources/home/samurai-seige/round2_start.png
+				">Images</button>
+				<p>
+					Samurai Seige is a game where the player is mounted on a horse riding into battle the Japanese army and a shield to protect themselves.
+					The project was developed within a 2-week period, which I focused on the arrow ballistics and interaction with player as well as the movement and interaction with the army.
+				</p>
+                <ul>
+					<li>Designed and developed arrow ballistic mechanics for unpredictable player path</li>
+					<li>Developed AI for soldiers and general's interactions with player and world</li>
+				</ul>
+				<img src="Resources/home/samurai-seige/round2_icon.png" class="image">
+			</article>
+			<article>
+				<h2>The SoundBearier</h2>
+				<h3>Gameplay Programmer | C# | Microsoft Hololens (AR) | Fall 2018</h3>
+				<a href="https://www.youtube.com/watch?v=w04QbQjhO_0"><button type="button">Video</button></a>
+				<button class="modal-images" onclick="openModal(this)" data-images="
+					Resources/home/sound-bearier/round1_gameplay_1.png,
+					Resources/home/sound-bearier/round1_gameplay_2.png,
+					Resources/home/sound-bearier/round1_gameplay_3.png,
+					Resources/home/sound-bearier/round1_gameplay_4.png,
+					Resources/home/sound-bearier/round1_sceneshot.png
+				">Images</button>
+				<p>
+					The SoundBearier is an AR game where the player tries to help the little boy reach his home and avoid the bear.
+					The player must use hand, speech, and volume detection to traverse down the augmented reality hill, when played the objects in the scene are replaced with models of objects.
+				</p>
+                <ul>
+					<li>Developed hand interactions for selection and picking up with Hololens interactions</li>
+					<li>Built tool to help with AR development by displaying occluded objects only in editor</li>
+					<li>Developed AI and animation for character interaction with objects (avoidance and climbing)</li>
+				</ul>
+				<img src="Resources/home/sound-bearier/round1_icon.png" class="image">
+			</article>
+			<!-- The Modal -->
+			<div class="modal" id="modal-images">
+				<!-- Modal content -->
+				<div class="modal-content">
+					<span class="close" onclick="closeModal()">&times;</span>
+					<p id="modal-description"></p>
+					<div class="img-grid">
+						<div class="row">
+							<div class="column">
+								<img src="">
+								<img src="">
+								<img src="">
+							</div>
+							<div class="column">
+								<img src="">
+								<img src="">
+								<img src="">
+							</div>
+							<div class="column">
+								<img src="">
+								<img src="">
+								<img src="">
+							</div>
+					</div>
+				</div>				
+			</div>
+			<!-- template
+			<article>
+				<h2></h2>
+                <h3></h3>
+				<p></p>
+                <ul>
+                    <li></li>
+			    </ul>
+			</article>
+			-->
+		</main>
+		<aside>
+			<h2>Blogs</h2>
+			<div>
+				<div>
+					<h4>Vulkan Renderer</h4>
+					<h5>C++ | MacOS | Fall 2019</h5>
+					<!-- <button onclick="openModal(this)">Images</button> -->
+					<p>
+						I had experience using OpenGL and Metal graphics APIs and wanted to try using the Vulkan API to understand how it differs and what other graphics engineers were talking about.
+						I was focusing on generating a 2.5D rendering engine that could be used to develop a game.
+					</p>
+				</div>
+			</div>
+			<!-- <div>
+				<div>
+					<h4>Procedural Animation</h4>
+					<h5>C# | Unity | Fall 2019</h5>
+					<p></p>
+				</div>
+			</div>
+			<div>
+				<div>
+					<h4>Galactic Commander Tools - AR Mobile Game</h4>
+				</div>
+			</div> -->
+			<div>
+				<div>
+					<h4>Unity Shader System Remake</h4>
+					<h5>GLSL | Fall 2018</h5>
+					<button onclick="openModal(this)" data-images="
+						Resources/blog/unity-shaders/plane_reflectivity.png,
+						Resources/blog/unity-shaders/sphere_reflectivity.png,
+						Resources/blog/unity-shaders/splat_map.png
+					">Images</button>
+				<p>
+					To better understand the Unity default material, I replicated all the functionality of it with my own fragment and vertex shaders. 
+					This exercise allowed me to understand how I could help the artists I was working with fully utilize what was avaialable to them.
+				</p>
+                <ul>
+					<li>Programmed vertex/fragment shaders for albedo, detail, normal, emission, occlusion, and detail mask maps</li>
+					<li>Enabled lighting, shadows, and reflections</li>
+					<!-- TODO -->
+			    </ul>
+				</div>
+			</div>
+			<!-- TODO -->
+			<!-- <div>
+				<div>
+					<h4>GDC 2018 - Personal Postmortem</h4>
+				</div>
+			</div>
+			<div>
+				<div>
+					<h4>Global Game Jam 2018 - Tramsmission</h4>
+				</div>
+			</div>
+			<div>
+				<div>
+					<h4>How to Perforce with P4V</h4>
+				</div>
+			</div>
+			<div>
+				<div>
+					<h4>Fortnite Bounce Effect Shader</h4>
+				</div>
+			</div>
+			<div>
+				<div>
+					<h4>Dreamhack Jam 2017 - Suck On That</h4>
+				</div>
+			</div> -->
+		</aside>
+	</section>
+	<footer>
+		<p>&copy; You can copy, edit and publish this template but please leave a link to our website | <a href="https://html5-templates.com/" target="_blank" rel="nofollow">HTML5 Templates</a></p>
+		<address>
+			Contact: <a href="mailto:me@example.com">Mail me</a>
+		</address>
+	</footer>
+
+
+</body>
+
+</html>
