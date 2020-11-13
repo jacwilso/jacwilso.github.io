@@ -61,10 +61,10 @@ aside {
 article {
     border-bottom: 2px dotted #999;
     padding-bottom: 15px;
-    margin-bottom: 20px;
+    margin-bottom: 25px;
 }
 article h2 {
-    font-weight: normal;
+/*    font-weight: normal;*/
     margin-bottom: 5px;
 }
 article h3 {
@@ -236,7 +236,7 @@ body > section {
 
 /* Slideshow */
 .slideshow {
-    margin: 10px 0 10px 0;
+    margin: 15px 0 15px 0;
 
 }
 .slide-container {
