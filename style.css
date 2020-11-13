@@ -246,7 +246,7 @@ body > section {
 }
 .slide-container img {
 /*    max-height: 500px;*/
-    max-width: 500px;
+/*    max-width: 500px;*/
     margin-left: auto;
     margin-right: auto;
     object-fit: contain;
@@ -288,7 +288,7 @@ body > section {
 /* Caption text */
 .slideshow-caption {
   color: black;
-  background: #f2f2f280;
+  background: #f2f2f2db;
   font-size: 15px;
   padding: 10px 0 10px 0;
   position: absolute;
