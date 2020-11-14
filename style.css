@@ -21,10 +21,14 @@ header {
     background: #AEC6CF;
     padding: 20px 30px;
     max-width: 940px;
+    min-width: 620px;
     margin: auto;
+    display: flex;
+    justify-content: space-between;
 }
 nav {
     display: inline-block;
+    min-width: 355px;
 }
 nav ul li a {
     background: #EEE;
@@ -144,7 +148,7 @@ aside li {
     display: inline-block;
     vertical-align: middle;
     font-size: 30px;
-    margin-right: 75px;
+    margin: 5px 50px 0 50px;
     color: #FFF;
 }
 #logo img {
