@@ -232,7 +232,7 @@ body > section {
     padding: 0 4px;
 }
 
-.img-grid .column img {
+.img-grid .column img, .img-grid .column video {
     margin-top: 8px;
     vertical-align: middle;
     width: 100%;

@@ -9,9 +9,9 @@
     <meta name="description" content="Portfolio for Jacob Wilson.">
     <link rel="stylesheet" href="style.css">
 	<script src="script.js"></script>
-	<link rel="icon" type="image/png" sizes="16x16"   href="favicon_io/icon-16x16.png">
-	<link rel="icon" type="image/png" sizes="32x32"   href="favicon_io/icon-32x32.png">
-	<link rel="icon" type="image/png" sizes="48x48"   href="favicon_io/icon.ico">
+	<link rel="icon" type="image/png" sizes="16x16"   href="favicon_io/favicon-16x16.png">
+	<link rel="icon" type="image/png" sizes="32x32"   href="favicon_io/favicon-32x32.png">
+	<link rel="icon" type="image/png" sizes="48x48"   href="favicon_io/favicon.ico">
 	<link rel="icon" type="image/png" sizes="192x192" href="favicon_io/android-chrome-192x192.png">
 	<link rel="icon" type="image/png" sizes="512x512" href="favicon_io/android-chrome-512x512.png">
 	<link rel="apple-touch-icon" type="image/png" sizes="180x180" href="favicon_io/apple-touch-icon.png">
@@ -422,25 +422,9 @@
 				<div class="modal-content">
 					<span class="close" onclick="closeModal()">&times;</span>
 					<p id="modal-description"></p>
-					<div class="img-grid">
-						<div class="row">
-							<div class="column">
-								<img src="">
-								<img src="">
-								<img src="">
-							</div>
-							<div class="column">
-								<img src="">
-								<img src="">
-								<img src="">
-							</div>
-							<div class="column">
-								<img src="">
-								<img src="">
-								<img src="">
-							</div>
-					</div>
-				</div>				
+					<div class="img-grid" id="modal-grid">
+                    </div>
+                </div>				
 			</div>
 			<!-- template
 			<article>
@@ -461,10 +445,22 @@
 					<h5>C++ | MacOS | Fall 2019</h5>
                     <a href="https://github.com/jacwilso/HydrolockEngine"><button type="button">Github</button></a>
 					<!-- <button onclick="openModal(this)">Images</button> -->
-                    <button onclick="openModal(this)" data-images="
-                        Resources/blog/vulkan-renderer/triangle.png,
-                        Resources/blog/vulkan-renderer/wireframe.mov,
-                        Resources/blog/vulkan-renderer/instanced_images.mov,
+                    <button onclick="openModal(this)" data-html="
+                        <div class='row'>
+                            <div class='column'>
+                                <video autoplay='' name='media'>
+                                    <source src='Resources/blog/vulkan-renderer/wireframe.mp4' type='video/mp4'>
+                                    </video>
+                            </div>
+                            <div class='column'>
+                                <img src='Resources/blog/vulkan-renderer/triangle.png'>
+                            </div>
+                            <div class='column'>
+                                <video autoplay='' name='media'>
+                                    <source src='Resources/blog/vulkan-renderer/instanced_images.mp4' type='video/mp4'>
+                                </video>
+                            </div>
+                        </div>
                         ">Images</button>
 					<p>
 						I had experience using OpenGL and Metal graphics APIs and wanted to try using the Vulkan API to understand how it differs and what other graphics engineers were talking about.
@@ -477,10 +473,18 @@
 					<h4>Procedural Animation</h4>
 					<h5>C# | Unity | Fall 2019</h5>
                     <a href="https://github.com/jacwilso/ProceduralAnimation"><button type="button">Github</button></a>
-                    <button onclick="openModal(this)" data-images="
-                        Resources/dummy_image.png,
-                        Resources/blog/procedural_walking.mov,
-                        Resources/dummy_image.png,
+                    <button onclick="openModal(this)" data-html="
+                        <div class='row'>
+                            <div class='column'>
+                            </div>
+                            <div class='column'>
+                                <video autoplay='' name='media'>
+                                    <source src='Resources/blog/procedural_walking.mp4' type='video/mp4'>
+                                </video>
+                            </div>
+                            <div class='column'>
+                            </div>
+                        </div>
                     ">Video</button>
 					<p>
                         Experimented with implementing my own IK solver to then be used for a procedural animation.
@@ -522,10 +526,18 @@
 				<div>
 					<h4>Unity Shader System Remake</h4>
 					<h5>GLSL | Fall 2017</h5>
-					<button onclick="openModal(this)" data-images="
-						Resources/blog/unity-shaders/plane_reflectivity.png,
-						Resources/blog/unity-shaders/sphere_reflectivity.png,
-						Resources/blog/unity-shaders/splat_map.png
+					<button onclick="openModal(this)" data-html="
+                        <div class='row'>
+                            <div class='column'>
+                                <img src='Resources/blog/unity-shaders/plane_reflectivity.png'>
+                            </div>
+                            <div class='column'>
+                                <img src='Resources/blog/unity-shaders/sphere_reflectivity.png'>
+                            </div>
+                            <div class='column'>
+                                <img src='Resources/blog/unity-shaders/splat_map.png'>
+                            </div>
+                        </div>
 					">Images</button>
 				<p>
 					To better understand the Unity default material, I replicated all the functionality of it with my own fragment and vertex shaders. 
